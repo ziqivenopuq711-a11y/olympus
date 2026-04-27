@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" class="h-dvh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Rewards — Olympus Bug Bounty</title>
+  <meta name="description" content="Olympus Bug Bounty — reward tiers, payment process, and reward calculation rules for security researchers.">
+  <link rel="stylesheet" href="13svqqn_tv061.css">
+  <style>
+    :root { --ohm-teal: #67CCCD; --ohm-purple: #2E2030; --ohm-pink: #F01580; --ohm-dark: #121212; --ohm-card: #1B1B1B; --ohm-border: #374151; }
+    body { background-color: #0a0a0a; color: #e5e7eb; font-family: 'Rubik', ui-sans-serif, system-ui, sans-serif; }
+    .site-header { background-color: #0a0a0a; border-bottom: 1px solid var(--ohm-border); position: sticky; top: 0; z-index: 50; }
+    .nav-link { color: #9ca3af; font-size: 0.9rem; letter-spacing: 0.05em; transition: color 0.2s; padding: 0.25rem 0; }
+    .nav-link:hover, .nav-link.active { color: var(--ohm-teal); }
+    .page-hero { background: linear-gradient(135deg, #0a0a0a 0%, #1a0a10 50%, #0a0a0a 100%); padding: 3rem 0 2.5rem; border-bottom: 1px solid var(--ohm-border); }
+    .breadcrumb { font-size: 0.8rem; color: #6b7280; margin-bottom: 0.75rem; }
+    .breadcrumb a { color: var(--ohm-teal); }
+    .section-card { background: var(--ohm-card); border: 1px solid var(--ohm-border); border-radius: 8px; margin-bottom: 1.5rem; overflow: hidden; }
+    .section-card-header { background: #262626; padding: 0.5rem 1rem; font-size: 0.8rem; color: #9ca3af; letter-spacing: 0.05em; text-transform: uppercase; }
+    .section-card-body { padding: 2rem; }
+    code { background: #262626; color: var(--ohm-teal); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.82em; font-family: ui-monospace, monospace; }
+    .btn-primary { display: inline-block; background: #4F46E5; color: #fff; border: 1px solid #4F46E5; border-radius: 6px; padding: 0.6rem 1.5rem; font-size: 0.9rem; transition: all 0.2s; }
+    .btn-primary:hover { background: #423bc0; border-color: #423bc0; }
+    .reward-tier { border-radius: 8px; overflow: hidden; margin-bottom: 1rem; border: 1px solid var(--ohm-border); }
+    .reward-tier-header { padding: 0.5rem 1.25rem; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; }
+    .tier-critical .reward-tier-header { background: var(--ohm-pink); color: #fff; }
+    .tier-high .reward-tier-header { background: #f97316; color: #fff; }
+    .tier-medium .reward-tier-header { background: #eab308; color: #000; }
+    .tier-low .reward-tier-header { background: #22c55e; color: #000; }
+    .reward-tier-body { background: #141414; padding: 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .reward-amount { font-size: 1.5rem; font-weight: 700; }
+    .reward-desc { font-size: 0.85rem; color: #9ca3af; max-width: 400px; }
+    .tier-tag { display: inline-block; font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 3px; background: rgba(103,204,205,0.1); border: 1px solid rgba(103,204,205,0.2); color: var(--ohm-teal); font-weight: 600; }
+    .custom-tier { background: #141414; border: 1px solid rgba(240,21,128,0.25); border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; }
+    .custom-tier-header { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: #f472b6; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .step-item { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(55,65,81,0.4); }
+    .step-item:last-child { border-bottom: none; }
+    .step-number { width: 28px; height: 28px; background: rgba(103,204,205,0.15); border: 1px solid rgba(103,204,205,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--ohm-teal); flex-shrink: 0; }
+    .faq-item { border-bottom: 1px solid rgba(55,65,81,0.5); padding: 1rem 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-weight: 600; margin-bottom: 0.5rem; }
+    .faq-a { font-size: 0.9rem; color: #9ca3af; line-height: 1.6; }
+    .site-footer { background: #050505; border-top: 1px solid var(--ohm-border); margin-top: 5rem; }
+    .footer-section-title { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 0.75rem; }
+    .footer-link { display: block; font-size: 0.85rem; color: #6b7280; transition: color 0.2s; margin-bottom: 0.4rem; }
+    .footer-link:hover { color: var(--ohm-teal); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .prose p { margin-bottom: 1rem; line-height: 1.7; }
+    .prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .prose li { margin-bottom: 0.5rem; line-height: 1.6; }
+    .prose a { color: var(--ohm-teal); text-decoration: underline; }
+    h1, h2, h3, h4 { color: #f9fafb; }
+    .section-title { display: flex; align-items: center; gap: 0.75rem; font-size: 1.25rem; font-weight: 600; margin-bottom: 1.25rem; padding-top: 0.5rem; }
+    .section-title svg { color: var(--ohm-teal); }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; height:57px;">
+    <a href="index.html" style="display:flex; align-items:center; gap:0.75rem; text-decoration:none;">
+      <div style="width:32px;height:32px;background:linear-gradient(135deg,#67CCCD,#4F46E5);border-radius:50%;"></div>
+      <span style="font-weight:700; font-size:1.05rem; color:#f9fafb; letter-spacing:0.02em;">Olympus <span style="color:var(--ohm-teal);">Bug Bounty</span></span>
+    </a>
+    <nav style="display:flex; align-items:center; gap:1.75rem;">
+      <a href="index.html" class="nav-link">Overview</a>
+      <a href="mainnet.html" class="nav-link">Mainnet</a>
+      <a href="testnet.html" class="nav-link">Testnet</a>
+      <a href="documentation.html" class="nav-link">Docs</a>
+      <a href="smart-contracts.html" class="nav-link">Contracts</a>
+      <a href="rewards.html" class="nav-link active">Rewards</a>
+      <a href="https://bugs.immunefi.com/dashboard/new-submission" target="_blank" class="btn-primary" style="font-size:0.85rem; padding:0.45rem 1.1rem;">Submit Bug</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Overview</a> / Rewards</div>
+    <h1 style="font-size:2rem; font-weight:700; margin-bottom:0.75rem;">
+      <svg style="display:inline; vertical-align:middle; margin-right:0.5rem; color:var(--ohm-teal);" stroke="currentColor" fill="none" stroke-width="1.5" viewBox="0 0 24 24" height="28" width="28"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+      Rewards &amp; Bounties
+    </h1>
+    <p style="color:#9ca3af; max-width:600px; line-height:1.6;">Complete reward structure for the Olympus Bug Bounty program. Rewards are paid in OHM, denominated in USD, governed by OlympusDAO under OIP-38.</p>
+    <div style="margin-top:1.25rem; display:inline-flex; align-items:center; gap:1rem; background:#141414; border:1px solid var(--ohm-border); border-radius:8px; padding:0.875rem 1.25rem;">
+      <div>
+        <div style="font-size:0.75rem; color:#9ca3af; margin-bottom:0.15rem;">Maximum Reward</div>
+        <div style="font-size:1.75rem; font-weight:700; color:#f9fafb;">$3,333,333</div>
+      </div>
+      <div style="width:1px; height:36px; background:var(--ohm-border);"></div>
+      <div>
+        <div style="font-size:0.75rem; color:#9ca3af; margin-bottom:0.15rem;">Payment Token</div>
+        <div style="font-size:1.1rem; font-weight:600;">OHM</div>
+      </div>
+      <div style="width:1px; height:36px; background:var(--ohm-border);"></div>
+      <div>
+        <div style="font-size:0.75rem; color:#9ca3af; margin-bottom:0.15rem;">KYC Required</div>
+        <div style="font-size:1.1rem; font-weight:600;">No</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="container" style="padding-top:2.5rem; padding-bottom:3rem; display:grid; grid-template-columns:1fr 280px; gap:2rem; align-items:start;">
+
+  <div>
+    <!-- Section 1: Smart Contract Rewards -->
+    <h2 class="section-title">
+      <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+      Smart Contract Rewards
+    </h2>
+
+    <div class="reward-tier tier-critical">
+      <div class="reward-tier-header">CRITICAL</div>
+      <div class="reward-tier-body">
+        <div>
+          <div class="reward-amount">Up to $3,333,333</div>
+          <div style="font-size:0.78rem; color:#9ca3af; margin-top:0.25rem;"><span class="tier-tag">Primacy of Rules</span></div>
+        </div>
+        <div class="reward-desc">10% of directly affected funds. Applies to unauthorized extraction of treasury assets, unauthorized minting, direct theft of user funds, or kernel bypass. Capped at $3,333,333.</div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-card-header">Critical Reward Calculation</div>
+      <div class="section-card-body prose">
+        <p>For critical vulnerabilities affecting mainnet assets, the reward is calculated as <strong>10% of the funds directly at risk</strong>, up to a maximum of <strong>$3,333,333</strong>.</p>
+        <p>The calculation uses the average price of OHM between <strong>CoinMarketCap.com</strong> and <strong>CoinGecko.com</strong> at the exact time the bug report is submitted. No adjustments are made for market liquidity or slippage.</p>
+        <p>For example, if a vulnerability puts $5,000,000 of treasury assets at risk, the reward would be $500,000 (10%), paid in OHM at the submission-time price.</p>
+      </div>
+    </div>
+
+    <div class="reward-tier tier-high">
+      <div class="reward-tier-header">HIGH</div>
+      <div class="reward-tier-body">
+        <div>
+          <div class="reward-amount">Up to $25,000</div>
+          <div style="font-size:0.78rem; color:#9ca3af; margin-top:0.25rem;"><span class="tier-tag">Fixed Range</span></div>
+        </div>
+        <div class="reward-desc">High severity vulnerabilities that can cause significant financial damage but require additional conditions to exploit, or have a limited scope of affected funds.</div>
+      </div>
+    </div>
+
+    <div class="reward-tier tier-medium">
+      <div class="reward-tier-header">MEDIUM</div>
+      <div class="reward-tier-body">
+        <div>
+          <div class="reward-amount">Up to $5,000</div>
+          <div style="font-size:0.78rem; color:#9ca3af; margin-top:0.25rem;"><span class="tier-tag">Fixed Range</span></div>
+        </div>
+        <div class="reward-desc">Medium severity bugs that could cause financial harm under specific conditions, or that meaningfully degrade the intended protocol behavior.</div>
+      </div>
+    </div>
+
+    <div class="reward-tier tier-low">
+      <div class="reward-tier-header">LOW</div>
+      <div class="reward-tier-body">
+        <div>
+          <div class="reward-amount">Up to $1,000</div>
+          <div style="font-size:0.78rem; color:#9ca3af; margin-top:0.25rem;"><span class="tier-tag">Fixed Range</span></div>
+        </div>
+        <div class="reward-desc">Low severity issues that present minimal financial risk but may impact protocol reliability, user experience, or state integrity in edge cases.</div>
+      </div>
+    </div>
+
+    <!-- Section 2: Custom Program Tiers -->
+    <h2 class="section-title" style="margin-top:1rem;">
+      <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+      Custom Program Tiers (OlympusDAO)
+    </h2>
+    <div class="section-card">
+      <div class="section-card-header">OlympusDAO Three-Tier Reward Structure</div>
+      <div class="section-card-body">
+        <p style="color:#9ca3af; font-size:0.9rem; margin-bottom:1.25rem;">This is a Custom Program governed by OlympusDAO. In addition to standard severity levels, the program has three specific tiers:</p>
+        <div class="custom-tier">
+          <div class="custom-tier-header">Tier 1</div>
+          <div style="font-weight:600; margin-bottom:0.4rem;">Loss of Deposited or User Funds</div>
+          <div style="font-size:0.87rem; color:#9ca3af; margin-bottom:0.5rem;">For bugs that would lead to direct loss of deposited user funds. Reward equals the potential loss amount, up to <strong style="color:#f9fafb;">$333,333 USD</strong>, paid in OHM.</div>
+        </div>
+        <div class="custom-tier">
+          <div class="custom-tier-header">Tier 2</div>
+          <div style="font-weight:600; margin-bottom:0.4rem;">Direct Economic Loss of Treasury Assets</div>
+          <div style="font-size:0.87rem; color:#9ca3af; margin-bottom:0.5rem;">For bugs leading to direct economic loss of treasury-controlled assets — including unauthorized extraction, improperly discounted purchases, or forced selling below intended pricing. Reward equals the potential loss, up to <strong style="color:#f9fafb;">$3,333,333 USD</strong>, paid in OHM.</div>
+        </div>
+        <div class="custom-tier">
+          <div class="custom-tier-header">Tier 3 — Discretionary</div>
+          <div style="font-weight:600; margin-bottom:0.4rem;">High-Quality, High-Impact Submissions</div>
+          <div style="font-size:0.87rem; color:#9ca3af;">Issued at the discretion of the Bug Bounty Management team for submissions that don't qualify under other tiers but are of exceptional quality and material security value. <strong style="color:#f9fafb;">Up to $16,942</strong>. Not available to Olympus contributors. This tier is awarded very rarely — researchers should not assume eligibility.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Web App Rewards -->
+    <h2 class="section-title">
+      <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      Website &amp; Application Rewards
+    </h2>
+    <div class="reward-tier tier-critical">
+      <div class="reward-tier-header">CRITICAL (Web/App Only)</div>
+      <div class="reward-tier-body">
+        <div>
+          <div class="reward-amount">Up to $3,333,333</div>
+          <div style="font-size:0.78rem; color:#9ca3af; margin-top:0.25rem;"><span class="tier-tag">Primacy of Rules</span></div>
+        </div>
+        <div class="reward-desc">Only bugs leading to <em>direct financial loss</em> as defined in the Impacts in Scope are accepted for web/app targets. UI bugs, XSS without direct financial impact, and informational findings are not accepted.</div>
+      </div>
+    </div>
+
+    <!-- Section 4: Payment Process -->
+    <h2 class="section-title">
+      <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+      Payment Process
+    </h2>
+    <div class="section-card">
+      <div class="section-card-body">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div>
+            <strong>Submit your report</strong>
+            <div style="font-size:0.87rem; color:#9ca3af; margin-top:0.2rem;">Submit your finding via the Immunefi platform with a working PoC. The team acknowledges receipt within 48 hours.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div>
+            <strong>Triage &amp; classification</strong>
+            <div style="font-size:0.87rem; color:#9ca3af; margin-top:0.2rem;">The Olympus Bug Bounty Management team triages the submission and assigns a severity within 7 business days. You may be asked to provide additional information.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div>
+            <strong>Reward agreement</strong>
+            <div style="font-size:0.87rem; color:#9ca3af; margin-top:0.2rem;">Upon severity agreement, the reward amount is calculated per the program rules. You will receive a reward offer via the Immunefi platform.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div>
+            <strong>OHM payment</strong>
+            <div style="font-size:0.87rem; color:#9ca3af; margin-top:0.2rem;">Payment is processed directly by OlympusDAO in OHM. The OHM amount is calculated using the average of CoinMarketCap and CoinGecko prices at time of submission. No KYC required.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">5</div>
+          <div>
+            <strong>Disclosure (optional)</strong>
+            <div style="font-size:0.87rem; color:#9ca3af; margin-top:0.2rem;">After the fix is deployed and 90 days have elapsed, you may request written approval to publish a public write-up (Category 3 — Approval Required).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: FAQ -->
+    <h2 class="section-title">
+      <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      Rewards FAQ
+    </h2>
+    <div class="section-card">
+      <div class="section-card-body">
+        <div class="faq-item">
+          <div class="faq-q">How is the OHM reward amount calculated?</div>
+          <div class="faq-a">The USD reward amount is determined first based on the severity and affected funds. The equivalent OHM amount is then calculated using the average of CoinMarketCap and CoinGecko prices at the moment you submit your bug report.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I receive more than the stated maximum?</div>
+          <div class="faq-a">No. The program operates under Primacy of Rules. The maximum reward for any single submission is $3,333,333 regardless of the potential impact scope. Rewards are not negotiable above the stated caps.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Are Olympus contributors eligible?</div>
+          <div class="faq-a">No. Active Olympus contributors should report bugs directly to the Bug Bounty Management team via the private Olympus Discord channel and are not eligible for public program rewards.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What if multiple researchers find the same bug?</div>
+          <div class="faq-a">Only the first valid submission for a specific vulnerability will receive a reward. Duplicate reports are not rewarded. Researchers are encouraged to submit as soon as a bug is confirmed reproducible.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is there a minimum reward amount?</div>
+          <div class="faq-a">There is no defined minimum. Low-severity findings that meet the in-scope criteria will be evaluated for a reward. Findings that don't meet the impact threshold will be acknowledged but may not receive a monetary reward.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right sidebar -->
+  <aside style="position:sticky; top:110px;">
+    <div class="section-card" style="margin-bottom:1rem;">
+      <div class="section-card-body" style="padding:1.25rem;">
+        <div style="font-weight:700; margin-bottom:1rem; font-size:0.95rem;">Reward Summary</div>
+        <div style="display:flex; flex-direction:column; gap:0.625rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:0.5rem 0.75rem; background:#141414; border-radius:5px;">
+            <span style="display:flex; align-items:center; gap:0.5rem; font-size:0.85rem;"><span style="width:10px;height:10px;border-radius:2px;background:var(--ohm-pink);display:inline-block;"></span> Critical</span>
+            <span style="font-weight:700; font-size:0.9rem;">≤ $3,333,333</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:0.5rem 0.75rem; background:#141414; border-radius:5px;">
+            <span style="display:flex; align-items:center; gap:0.5rem; font-size:0.85rem;"><span style="width:10px;height:10px;border-radius:2px;background:#f97316;display:inline-block;"></span> High</span>
+            <span style="font-weight:700; font-size:0.9rem;">≤ $25,000</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:0.5rem 0.75rem; background:#141414; border-radius:5px;">
+            <span style="display:flex; align-items:center; gap:0.5rem; font-size:0.85rem;"><span style="width:10px;height:10px;border-radius:2px;background:#eab308;display:inline-block;"></span> Medium</span>
+            <span style="font-weight:700; font-size:0.9rem;">≤ $5,000</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:0.5rem 0.75rem; background:#141414; border-radius:5px;">
+            <span style="display:flex; align-items:center; gap:0.5rem; font-size:0.85rem;"><span style="width:10px;height:10px;border-radius:2px;background:#22c55e;display:inline-block;"></span> Low</span>
+            <span style="font-weight:700; font-size:0.9rem;">≤ $1,000</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:0.5rem 0.75rem; background:#141414; border-radius:5px;">
+            <span style="display:flex; align-items:center; gap:0.5rem; font-size:0.85rem;"><span style="width:10px;height:10px;border-radius:2px;background:#a78bfa;display:inline-block;"></span> Tier 3</span>
+            <span style="font-weight:700; font-size:0.9rem;">≤ $16,942</span>
+          </div>
+        </div>
+        <div style="margin-top:1.25rem;">
+          <a href="https://bugs.immunefi.com/dashboard/new-submission" target="_blank" class="btn-primary" style="display:block; text-align:center; font-size:0.85rem;">Submit a Bug</a>
+        </div>
+      </div>
+    </div>
+    <div class="section-card">
+      <div class="section-card-body" style="padding:1.25rem;">
+        <div style="font-weight:700; margin-bottom:0.75rem; font-size:0.95rem;">Payment Details</div>
+        <div style="font-size:0.82rem; color:#9ca3af; line-height:1.65;">
+          <div style="margin-bottom:0.5rem;">💰 <strong style="color:#e5e7eb;">Token:</strong> OHM</div>
+          <div style="margin-bottom:0.5rem;">💵 <strong style="color:#e5e7eb;">Denominated in:</strong> USD</div>
+          <div style="margin-bottom:0.5rem;">📊 <strong style="color:#e5e7eb;">Price source:</strong> CMC + CoinGecko avg.</div>
+          <div style="margin-bottom:0.5rem;">🆔 <strong style="color:#e5e7eb;">KYC required:</strong> No</div>
+          <div>⚖️ <strong style="color:#e5e7eb;">Governed by:</strong> OIP-38</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container" style="padding-top:3rem; padding-bottom:2rem;">
+    <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:2rem; margin-bottom:2.5rem;">
+      <div>
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+          <div style="width:28px;height:28px;background:linear-gradient(135deg,#67CCCD,#4F46E5);border-radius:50%;"></div>
+          <span style="font-weight:700; font-size:1rem; color:#f9fafb;">Olympus <span style="color:var(--ohm-teal);">Bug Bounty</span></span>
+        </div>
+        <p style="font-size:0.85rem; color:#6b7280; line-height:1.6; max-width:280px;">Helping secure the Olympus decentralized reserve currency protocol through community-driven security research.</p>
+      </div>
+      <div>
+        <div class="footer-section-title">Program</div>
+        <a href="index.html" class="footer-link">Overview</a>
+        <a href="mainnet.html" class="footer-link">Mainnet</a>
+        <a href="testnet.html" class="footer-link">Testnet</a>
+        <a href="documentation.html" class="footer-link">Documentation</a>
+        <a href="smart-contracts.html" class="footer-link">Smart Contracts</a>
+        <a href="rewards.html" class="footer-link">Rewards</a>
+      </div>
+      <div>
+        <div class="footer-section-title">Sections</div>
+        <a href="index.html#information" class="footer-link">Information</a>
+        <a href="index.html#scope" class="footer-link">Scope</a>
+        <a href="index.html#program-rules" class="footer-link">Program Rules</a>
+        <a href="index.html#resources" class="footer-link">Resources</a>
+      </div>
+      <div>
+        <div class="footer-section-title">External</div>
+        <a href="https://www.olympusdao.finance/" target="_blank" rel="noopener noreferrer" class="footer-link">OlympusDAO</a>
+        <a href="https://docs.olympusdao.finance/" target="_blank" rel="noopener noreferrer" class="footer-link">Documentation</a>
+        <a href="https://github.com/OlympusDAO" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+        <a href="https://immunefi.com/bug-bounty/olympus/" target="_blank" rel="noopener noreferrer" class="footer-link">Immunefi Listing</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--ohm-border); padding-top:1.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span style="font-size:0.78rem; color:#4b5563;">© 2026 Olympus Bug Bounty — Powered by OlympusDAO</span>
+      <span style="font-size:0.78rem; color:#4b5563;">Rewards paid in OHM · Governed by OIP-38</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,80 +1,529 @@
-<!DOCTYPE html><html lang="en" class="h-dvh rubik_cd38be04-module__cl9swW__className unbounded_3d8309d-module__AEaBXq__variable terminalgrotesque_15b0142e-module__-9ksuq__variable ot2049_29c1a861-module__dI0RqW__variable geist_9c6cb61b-module__8NX9hq__variable" data-scrapbook-source="https://immunefi.com/bug-bounty/olympus/information/" data-scrapbook-create="20260427162903619"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><link rel="stylesheet" href="0wh0rdfmyvyju.css" data-precedence="next"><link rel="stylesheet" href="13svqqn_tv061.css" data-precedence="next"><link rel="stylesheet" href="0c24myv2-mm4e.css" data-precedence="next"><meta name="theme-color" content="#000000"><meta name="next-size-adjust" content=""><meta name="sentry-trace" content="b7a9cad5f7dadcb07a144074b780c274-d069a717036bda94-0"><meta name="baggage" content="sentry-environment=production,sentry-release=989be0faf2cddc36afb790227e4292410c1101b3,sentry-public_key=2686be14354b41818cd1794a6854a5aa,sentry-trace_id=b7a9cad5f7dadcb07a144074b780c274,sentry-org_id=609579,sentry-sampled=false,sentry-sample_rand=0.30907696603992374,sentry-sample_rate=0.02"><link rel="apple-touch-icon" href="https://immunefi.com/apple-touch-icon.png" sizes="180x180"><script data-scrapbook-elem="custom-elements-loader">(function (names) { if (!customElements) { return; } for (const name of names) { customElements.define(name, class CustomElement extends HTMLElement {}); } })(["next-route-announcer"])</script></head><body class="overflow-x-hidden" style="overflow: auto;"><div class="relative"><div class="absolute z-[-1] min-h-screen w-full 2xl:top-[-200px]"><div class="aspect-h-8 aspect-w-7 lg:aspect-h-9 lg:aspect-w-16"><span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img alt="" sizes="100vw" srcset="gradient-2.png 640w, gradient.png 750w, gradient-1.png 828w, gradient-3.png 1080w, gradient-6.png 1200w, gradient-5.png 1920w, gradient-7.png 2048w, gradient-4.png 3840w" src="gradient-4.png" decoding="async" data-nimg="fill" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: medium; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span></div></div><header class="relative z-50 mb-3 lg:mb-10" data-testid="pageHeader"><div class="container flex items-center justify-between py-4 lg:justify-normal lg:py-8"><a class="lg:max-w-auto mx-auto flex max-w-[200px] justify-center" data-testid="desktopLogo" href="https://immunefi.com/"><img alt="Immunefi" loading="lazy" width="240" height="60" decoding="async" data-nimg="1" style="color: transparent;" src="logo-white.svg"></a><div class="h-8 w-px bg-neutral-400 mx-6 hidden lg:block"></div><nav data-testid="desktopMenu" class="hidden w-full items-center justify-between leading-none font-normal lg:flex xl:gap-x-8 2xl:gap-x-10"><div class="flex items-center gap-x-4 xl:gap-x-8 2xl:gap-x-10"><div class="relative"><button type="button" class="focus:outline-hidden"><div class="flex h-5 items-center space-x-2"><div id="options-menu" class="whitespace-nowrap">Platform</div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 256" class="size-3 opacity-50 duration-75 rotate-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></div></button><div class="absolute top-full left-1/2 z-50 mt-3 w-56 origin-center -translate-x-1/2 rounded-lg bg-white shadow-lg ring-1 ring-black/5 transition duration-75 focus:outline-hidden pointer-events-none scale-95 opacity-0 ease-in" role="menu" aria-orientation="vertical" aria-labelledby="options-menu"><svg width="66" height="26" viewBox="0 0 66 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-white absolute -top-2 left-1/2 z-[51] origin-center -translate-x-1/2 transition duration-75 opacity-0 ease-in"><path fill-rule="evenodd" clip-rule="evenodd" d="M51.9703 9.9998C48.7877 9.9998 45.7355 8.73552 43.4851 6.48508L41.4853 4.4853C36.799 -0.20099 29.201 -0.200994 24.5147 4.4853L22.5149 6.48508C20.2645 8.73552 17.2123 9.9998 14.0297 9.9998H8C3.58172 9.9998 0 13.5815 0 17.9998C0 22.4181 3.58172 25.9998 8 25.9998H58C62.4183 25.9998 66 22.4181 66 17.9998C66 13.5815 62.4183 9.9998 58 9.9998H51.9703Z"></path></svg><div class="z-[60] px-2 py-4" role="none"><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/bug-bounty-program/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Bug Bounty Programs</span></a><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/pr-reviews/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">PR Reviews</span></a><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/audits/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Audits</span></a><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/audit-competitions/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Audit Competitions</span></a><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/invite-only-program/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Invite Only</span></a><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/safe-harbor/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Safe Harbor</span></a><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/vaults/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Vaults</span></a><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/managed-triage/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Managed Triage</span></a><a href="https://immunefisupport.zendesk.com/?utm_source=immunefi" class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Help Center</span></a></div></div></div><div class="relative"><button type="button" class="focus:outline-hidden"><div class="flex h-5 items-center space-x-2"><div id="options-menu" class="whitespace-nowrap">Security Researchers</div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 256" class="size-3 opacity-50 duration-75 rotate-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></div></button><div class="absolute top-full left-1/2 z-50 mt-3 w-56 origin-center -translate-x-1/2 rounded-lg bg-white shadow-lg ring-1 ring-black/5 transition duration-75 focus:outline-hidden pointer-events-none scale-95 opacity-0 ease-in" role="menu" aria-orientation="vertical" aria-labelledby="options-menu"><svg width="66" height="26" viewBox="0 0 66 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-white absolute -top-2 left-1/2 z-[51] origin-center -translate-x-1/2 transition duration-75 opacity-0 ease-in"><path fill-rule="evenodd" clip-rule="evenodd" d="M51.9703 9.9998C48.7877 9.9998 45.7355 8.73552 43.4851 6.48508L41.4853 4.4853C36.799 -0.20099 29.201 -0.200994 24.5147 4.4853L22.5149 6.48508C20.2645 8.73552 17.2123 9.9998 14.0297 9.9998H8C3.58172 9.9998 0 13.5815 0 17.9998C0 22.4181 3.58172 25.9998 8 25.9998H58C62.4183 25.9998 66 22.4181 66 17.9998C66 13.5815 62.4183 9.9998 58 9.9998H51.9703Z"></path></svg><div class="z-[60] px-2 py-4" role="none"><a target="_blank" referrerpolicy="origin" href="https://bugs.immunefi.com/signup?utm_campaign=home_sr_dropdown_join_immunefi_button&amp;utm_source=immunefi" role="menuitem" class="hover:border-deepBlack mx-2 mb-2 flex items-center justify-between rounded border-2 border-white px-2 py-1 text-black sm:mx-0 lg:mb-0 lg:border-transparent lg:text-sm"><div class=""><div class="flex items-center gap-2 text-white lg:text-black"><p class="font-semibold">Join Immunefi</p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right size-3" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div><p class="text-muted-foreground text-[0.7rem]">Find bugs. Get paid.</p></div><img alt="Immunefi Profile Pic" loading="eager" width="64" height="64" decoding="async" data-nimg="1" class="rounded-full" style="color: transparent;" srcset="join-immunefi-pfp-1.png 1x, join-immunefi-pfp.png 2x" src="join-immunefi-pfp.png"></a><div class="m-2 hidden h-[1.5px] rounded-full bg-gray-200 lg:block"></div><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/hacker-pledging/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Hacker Pledging</span></a><a href="https://immunefisupport.zendesk.com/hc/en-us/categories/5425506638353-For-Whitehats?utm_source=immunefi" class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Help for Whitehats</span></a><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/allstars/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">All Stars</span></a><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/learn/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Learn</span></a><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/leaderboard/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Leaderboard</span></a><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/immunefi-top-10/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Immunefi Top 10 Bugs</span></a><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/whitehat-awards/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Whitehat Awards</span></a><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/hall-of-fame/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Whitehat Hall of Fame</span></a><a href="https://reports.immunefi.com/?utm_source=immunefi" class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Competition Findings</span></a><a class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" href="https://immunefi.com/responsible-publication/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Responsible Publication</span></a></div></div></div><div class="relative"><button type="button" class="focus:outline-hidden"><div class="flex h-5 items-center space-x-2"><div id="options-menu" class="whitespace-nowrap">Token</div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 256" class="size-3 opacity-50 duration-75 rotate-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path></svg></div></button><div class="absolute top-full left-1/2 z-50 mt-3 w-56 origin-center -translate-x-1/2 rounded-lg bg-white shadow-lg ring-1 ring-black/5 transition duration-75 focus:outline-hidden pointer-events-none scale-95 opacity-0 ease-in" role="menu" aria-orientation="vertical" aria-labelledby="options-menu"><svg width="66" height="26" viewBox="0 0 66 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-white absolute -top-2 left-1/2 z-[51] origin-center -translate-x-1/2 transition duration-75 opacity-0 ease-in"><path fill-rule="evenodd" clip-rule="evenodd" d="M51.9703 9.9998C48.7877 9.9998 45.7355 8.73552 43.4851 6.48508L41.4853 4.4853C36.799 -0.20099 29.201 -0.200994 24.5147 4.4853L22.5149 6.48508C20.2645 8.73552 17.2123 9.9998 14.0297 9.9998H8C3.58172 9.9998 0 13.5815 0 17.9998C0 22.4181 3.58172 25.9998 8 25.9998H58C62.4183 25.9998 66 22.4181 66 17.9998C66 13.5815 62.4183 9.9998 58 9.9998H51.9703Z"></path></svg><div class="z-[60] px-2 py-4" role="none"><a href="https://immunefi.foundation/?utm_source=immunefi&amp;utm_medium=navbar&amp;utm_content=foundation" class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Foundation</span></a><a href="https://immunefi.foundation/institutional?utm_source=immunefi&amp;utm_medium=navbar&amp;utm_content=institutional" class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Institutional</span></a><a href="https://docs.immunefi.foundation/?utm_source=immunefi&amp;utm_medium=navbar&amp;utm_content=docs" class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Docs</span></a><a href="https://mnrj63gcocj.typeform.com/to/gG25n4bN?utm_source=immunefi&amp;utm_medium=navbar&amp;utm_content=ir-contact" class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">IR Contact</span></a><a href="https://linktr.ee/IMU_official?utm_source=immunefi&amp;utm_medium=navbar&amp;utm_content=buy-imu" class="hover:border-deepBlack block rounded border-2 border-transparent px-4 py-2 text-center text-sm text-black" role="menuitem" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Buy IMU</span></a></div></div></div><div class="flex items-center"><a href="https://immunefi.com/blog/"><span class="font-normal text-base">Blog</span></a></div></div><div class="flex items-center gap-x-4 xl:gap-x-8 2xl:gap-x-10"><a target="_blank" referrerpolicy="origin" href="https://bugs.immunefi.com/?utm_source=immunefi" class="p-3 whitespace-nowrap inline-block max-w-min text-center xl:whitespace-nowrap">Login</a><a class="p-3 whitespace-nowrap inline-block max-w-min text-center xl:whitespace-nowrap" href="https://immunefi.com/bug-bounty/">Explore Bounties</a></div></nav></div></header><main><article><div><div class="container mb-[14px] flex"><a class="flex items-center space-x-1 rounded-[8px] border border-[#fff]/30 bg-[#000]/20 px-2 py-1 text-[14px] leading-[21px] font-medium transition-all duration-250 hover:border-[#fff]/50 hover:bg-[#000]/40" href="https://immunefi.com/bug-bounty/"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg><span>Back to Explore</span></a></div><div class="container mb-12 grid grid-cols-8 gap-[15px]"><div class="col-span-8 flex lg:col-span-6"><div class="grid w-full flex-col rounded-md backdrop-blur-[150px]" style="background: linear-gradient(91.35deg, rgb(36, 36, 36) 9.65%, rgba(0, 0, 0, 0) 113.63%);"><div class="flex flex-wrap items-center border-b border-[#F5F5F5]/10 px-4 py-3 lg:flex-nowrap"><div class="flex w-full items-center lg:w-auto"><div class="flex-shrink-0"><img alt="Olympus-logo" loading="lazy" width="59" height="59" decoding="async" data-nimg="1" class="rounded-md" style="color: transparent;" srcset="final_logo_01_07_22_OLYMPUS-1.png 1x, final_logo_01_07_22_OLYMPUS.png 2x" src="final_logo_01_07_22_OLYMPUS.png"></div><h1 data-testid="Header_projectName" class="ml-5 text-[24px] leading-tight font-medium break-words sm:text-[32px]">Olympus</h1></div><div class="flex flex-1 items-center pt-2 lg:ml-4 lg:w-auto lg:pt-0"><div class="flex flex-1 items-center gap-[13px]"><span class="" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check text-lg" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg></span></div><div class="ml-auto"></div></div></div><div class="px-[16px] py-[14px] text-[18px] leading-[27px] font-normal text-[#C4C7CC]"><div class="Markdown-module__WgzoCG__markdown"><p>Olympus is building the value layer of global finance. A programmatic treasury-backed framework for monetary policy, credit, and liquidity</p></div></div><div class="flex flex-col justify-end"><div><div class="flex flex-wrap gap-2 px-[16px] text-[#C4C7CC]"><div class="flex items-center justify-center rounded-[100px] border border-[#C4C7CC] px-2 text-[13px]">Arbitrum</div><div class="flex items-center justify-center rounded-[100px] border border-[#C4C7CC] px-2 text-[13px]">Avalanche</div><div class="flex items-center justify-center rounded-[100px] border border-[#C4C7CC] px-2 text-[13px]">Boba Network</div><div class="flex items-center justify-center rounded-[100px] border border-[#C4C7CC] px-2 text-[13px]">ETH</div><div class="flex items-center justify-center rounded-[100px] border border-[#C4C7CC] px-2 text-[13px]">Fantom</div><div class="flex items-center justify-center rounded-[100px] border border-[#C4C7CC] px-2 text-[13px]">Optimism</div><div class="flex items-center justify-center rounded-[100px] border border-[#C4C7CC] px-2 text-[13px]">Polygon</div><div class="flex items-center justify-center rounded-[100px] border border-[#C4C7CC] px-2 text-[13px]">Defi</div><div class="flex items-center justify-center rounded-[100px] border border-[#C4C7CC] px-2 text-[13px]">DAO</div><div class="flex items-center justify-center rounded-[100px] border border-[#C4C7CC] px-2 text-[13px]">Token</div><div class="flex items-center justify-center rounded-[100px] border border-[#C4C7CC] px-2 text-[13px]">Solidity</div></div></div><div class="flex items-end"><div class="tiles align-self-end flex-1 p-[16px] [--tiles-gap:16px] sm:[--tiles-cols:3] xl:[--tiles-cols:3]"><div class="rounded px-[16px] py-[8px] lg:px-[32px] bg-white"><div class="text-[15px] font-light font-semibold text-black">Maximum Bounty</div><span class="text-[20px] font-medium text-black">$3,333,333</span></div><div class="rounded px-[16px] py-[8px] lg:px-[32px] bg-[#2E2030]"><div class="text-[15px] font-light">Live Since</div><span class="text-[20px] font-medium text-white">06 January 2022</span></div><div class="rounded px-[16px] py-[8px] lg:px-[32px] bg-[#2E2030]"><div class="text-[15px] font-light">Last Updated</div><span class="text-[20px] font-medium text-white">30 March 2026</span></div></div></div></div></div></div><div class="col-span-8 flex flex-col space-y-[16px] lg:col-span-2"><div class="w-full flex-1 rounded-[5px] bg-[#000] px-[18px] py-[25px]"><div class="flex h-full flex-col justify-between"><ul class="space-y-[10px]"><li class="flex items-center space-x-2"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="text-[#A4FEFF]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path></svg><p>PoC Required</p></li></ul><div class="space-y-[10px] mt-10"><a target="_blank" referrerpolicy="origin" href="https://bugs.immunefi.com/dashboard/new-submission?utm_source=immunefi" class="btn block border-[#4F46E5] bg-[#4F46E5] !text-white hover:border-[#423bc0] hover:bg-[#423bc0] hover:text-white">Submit a Bug</a></div></div></div></div></div></div><div id="top"></div> <div class="sticky top-0 z-[49] bg-black shadow-[0_-25px_30px_0px_rgba(0,0,0,0.3)]"><div class="w-full border-[#374151] lg:border-b-2"><div class="relative grid grid-cols-8 lg:container"><div class="absolute hidden h-full transform items-center transition-all duration-500 ease-in-out lg:flex translate-x-[10px] opacity-0"><a class="transform cursor-pointer rounded-lg border border-[#fff]/30 p-1 text-[#595959] transition-all hover:border-[#fff]/50 hover:text-white" href="https://immunefi.com/bug-bounty/"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></a></div><div class="z-10 col-span-8 flex flex-wrap divide-y-2 divide-[#374151] border-y-2 border-[#374151] bg-[#121212] lg:col-span-6 lg:flex-nowrap lg:divide-x-2 lg:divide-y-0 lg:border-x-2 lg:border-y-0"><a class="flex w-full items-center px-2 lg:w-auto lg:flex-1 lg:justify-center lg:text-center" href="#top"><span class="relative container flex items-center space-x-2 px-[8px] py-[10px] text-[21px] lg:w-auto font-medium text-[#67CCCD] after:absolute after:left-[-2px] after:h-[30px] after:w-[4px] after:bg-[#67CCCD] after:content-[''] lg:after:bottom-[-2px] lg:after:left-0 lg:after:h-[5px] lg:after:w-full"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg><span>Information</span></span></a><a class="flex w-full items-center px-2 lg:w-auto lg:flex-1 lg:justify-center lg:text-center" href="https://immunefi.com/bug-bounty/olympus/scope/#top"><span class="relative container flex items-center space-x-2 px-[8px] py-[10px] text-[21px] lg:w-auto"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg><span>Scope</span></span></a><a class="flex w-full items-center px-2 lg:w-auto lg:flex-1 lg:justify-center lg:text-center" href="https://immunefi.com/bug-bounty/olympus/resources/#top"><span class="relative container flex items-center space-x-2 px-[8px] py-[10px] text-[21px] lg:w-auto"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"></path></svg><span>Resources</span></span></a></div></div></div></div><div class="-mt-[50px] bg-black pt-[100px]" id="top"><div class="container grid grid-cols-8 pb-15 lg:pb-52"><div class="order-2 col-span-8 lg:order-1 lg:col-span-6"><section class="mb-[60px]" id="rewards"><div class="-mt-[75px] mb-[16px] flex flex-col pt-[75px] md:flex-row md:items-center md:justify-between"><h3 class="mb-[16px] text-[22px] leading-[33px] md:mb-0"><span class="flex items-center space-x-2"><svg stroke="currentColor" fill="none" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" height="28" width="28" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path></svg><span>Rewards</span></span></h3></div><div class="mb-[32px] relative overflow-hidden rounded-[5px] bg-[#191919] border border-[#374151] border-none"><div class="px-8 py-5">Olympus<!-- --> provides rewards in <b>OHM</b> <!-- -->on <b>Ethereum</b>, denominated in USD.</div></div><div class="-mt-[75px] mb-[16px] flex flex-col pt-[75px] md:flex-row md:items-center md:justify-between"><h3 class="mb-[16px] text-[22px] leading-[33px] md:mb-0"><span class="flex items-center space-x-2"><span>Rewards by Threat Level</span></span></h3></div><div class="mb-[32px] space-y-[40px]"><div><div class="mb-[15px] rounded-[5px] bg-[#374151] py-[6px] text-center">Smart Contract</div><div class="grid gap-[15px] md:grid-cols-2 lg:grid-cols-4"><div class="overflow-hidden rounded-[5px]"><div class="py-[2px] text-center font-medium text-black bg-[#F01580]">Critical</div><div class="flex h-24 flex-col justify-center rounded-b-sm bg-[#1B1B1B] border-[#F01580] border"><div class="flex h-full flex-col justify-center pl-4"><span>Up to: <!-- -->$3,333,333</span></div><div class="w-full rounded-b-sm bg-[#121212] py-1 text-center text-sm text-[#B5B8BF]">Primacy of Rules</div></div></div><div class="md:col-span-2 lg:col-span-4"><div class="rounded-lg bg-[#1B1B1B] pb-4 border-[#F01580] border"><div class="mb-4 inline-block rounded-br-sm rounded-tl-sm px-2 py-1 text-sm font-medium text-black bg-[#F01580]">Critical Reward Calculation</div><div class="flex flex-col gap-2 px-4 pb-4"><h3 class="text-base font-medium">Mainnet assets:</h3><div class="flex items-center justify-between space-x-4"><p>Reward amount is<!-- --> <span class="font-bold">10<!-- -->%</span> of the funds directly affected up to a maximum of:</p><span class="rounded bg-black px-4 py-2">$3,333,333</span></div></div></div></div></div></div><div><div class="mb-[15px] rounded-[5px] bg-[#374151] py-[6px] text-center">Websites and Applications</div><div class="grid gap-[15px] md:grid-cols-2 lg:grid-cols-4"><div class="overflow-hidden rounded-[5px]"><div class="py-[2px] text-center font-medium text-black bg-[#F01580]">Critical</div><div class="flex h-24 flex-col justify-center rounded-b-sm bg-[#1B1B1B] border-[#F01580] border"><div class="flex h-full flex-col justify-center pl-4"><span>Up to: <!-- -->$3,333,333</span></div><div class="w-full rounded-b-sm bg-[#121212] py-1 text-center text-sm text-[#B5B8BF]">Primacy of Rules</div></div></div><div class="md:col-span-2 lg:col-span-4"></div></div></div></div><div class="mb-[32px] relative overflow-hidden rounded-[5px] bg-[#191919] border border-[#374151]"><div class="flex"><div class="rounded-br-[5px] bg-[#374151] px-[10px] py-[2px] text-sm font-medium bg-[#374151]">Rewards Body</div></div><div class="px-8 py-5"><div class="Markdown-module__WgzoCG__markdown prose"><p>This is a Custom Program, governed by <strong>OlympusDAO</strong>. The program is subcategorized into three tiers, with only the below impacts considered for a reward:</p>
-<ul>
-<li>
-<p>Tier 1: For bugs/exploits which would lead to a loss of deposited funds or a loss of user funds, a reward amount equal to the potential loss of funds up to <strong>USD 333 333</strong> (paid in OHM) is provided.</p>
-</li>
-<li>
-<p>Tier 2: For bugs/exploits which would lead to a direct economic loss* of treasury-controlled funds or assets, a reward equal to the potential loss up to USD 3,333,333 (paid in OHM) is provided.</p>
-</li>
-<li>
-<ul>
-<li>*For clarity, “economic loss” includes:
-<ul>
-<li>Extracting assets from the treasury without authorization</li>
-<li>Acquiring protocol-owned tokens or assets at an improperly discounted rate due to a bug</li>
-<li>Forcing the protocol to sell or redeem assets below intended pricing</li>
-<li>Any exploit that allows value to leave the system to an attacker</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>
-<p>It does <strong>not</strong> include:</p>
-<ul>
-<li>Rebalancing, accounting errors, or internal value shifts where assets remain within treasury or protocol-controlled contracts</li>
-<li>Manipulations that do not result in net value extraction from the system</li>
-</ul>
-</li>
-<li>
-<p>Tier 3: The Bug Bounty Management team may from time to time, at its discretion, issue an award of up to <strong>$16,942.00</strong> for submissions which do not qualify for bounties under other tiers, but which the team feels nonetheless are high effort, high quality, and of material use in improving Olympus’ security. Note that this bounty is not available to Olympus contributors, who should contact the Bug Bounty Management team directly for a bounty if they have found a bug or inefficiency that is outside of their mandate as a contributor. Further note that this bounty will not be awarded regularly. It is meant only for extremely high quality submissions which have significant material impacts to Olympus. No person submitting a bounty should assume that they are entitled to this or will be awarded it, as the bar to qualify for it will be very high.</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>For vulnerabilities of websites and applications, only bugs that lead to direct financial damage listed in the Impacts in Scope are accepted and are categorized as critical. All others are not accepted. An example of an acceptable vulnerability in this category would be <a href="https://rekt.news/badger-rekt/?utm_source=immunefi" node="[object Object]" target="_blank" rel="noopener noreferrer">https://rekt.news/badger-rekt/ </a></p>
-<p>Bugs that have been previously disclosed, either publicly or in an earlier bug submission, are ineligible for a reward.</p>
-<p>Payouts are handled by the <strong>Olympus DAO</strong> directly and are denominated in <strong>USD</strong>, under the terms set out in OIP-38. However, payouts are done in <strong>OHM</strong>.</p>
-<p><strong>Reward Payment Terms</strong></p>
-<p>Payouts are handled by the <strong>Olympus</strong> team directly and are denominated in <strong>USD</strong>. However, payments are done in <strong>OHM</strong></p>
-<p>The calculation of the net amount rewarded is based on the average price between CoinMarketCap.com and CoinGecko.com at the time the bug report was submitted. No adjustments are made based on liquidity availability.</p></div></div></div><div class="text-center"><a class="inline-block rounded-full border border-[#D2D4D8] bg-[#E1E3E6] px-[24px] py-[8px] align-middle text-[16px] leading-[25px] text-black transition-colors hover:bg-white" href="https://immunefi.com/bug-bounty/olympus/scope/#impacts"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="inline-block" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 0 0-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 0 0 0-17.47C428.89 172.28 347.8 112 255.66 112z"></path><circle cx="256" cy="256" r="80" fill="none" stroke-miterlimit="10" stroke-width="32"></circle></svg> <span>View impacts in scope</span></a></div></section><section class="mb-[60px]"><div class="-mt-[75px] mb-[16px] flex flex-col pt-[75px] md:flex-row md:items-center md:justify-between"><h3 class="mb-[16px] text-[22px] leading-[33px] md:mb-0"><span class="flex items-center space-x-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="28" width="28" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg><span>Program Overview</span></span></h3></div><div class="relative overflow-hidden rounded-[5px] bg-[#191919] border border-[#374151] border-none"><div class="px-8 py-5"><div class="Markdown-module__WgzoCG__markdown prose"><p>Olympus is building the value layer of global finance. A programmatic treasury-backed framework for monetary policy, credit, and liquidity</p>
-<p>For more information about Olympus, please visit <a href="https://www.olympusdao.finance/?utm_source=immunefi" node="[object Object]" target="_blank" rel="noopener noreferrer">https://www.olympusdao.finance/</a></p>
-<p>This bug bounty program is focused on their smart contracts and app and is focused on preventing:</p>
-<ul>
-<li>Loss of treasury funds</li>
-<li>Loss of user funds</li>
-<li>Loss of bond funds</li>
-</ul>
-<p>This bug bounty program is managed by OlympusDAO under the provisions of <a href="https://forum.olympusdao.finance/d/197-oip-38-formalize-partnership-with-immunefi-for-the-bug-bounty-program?utm_source=immunefi" node="[object Object]" target="_blank" rel="noopener noreferrer">OIP-38</a>, an extension of <a href="https://forum.olympusdao.finance/d/72-oip-17-creation-funding-of-bug-bounty-program?utm_source=immunefi" node="[object Object]" target="_blank" rel="noopener noreferrer">OIP-17</a> and <a href="https://forum.olympusdao.finance/d/165-oip-34-adding-language-to-tier-1-of-bug-bounty/2?utm_source=immunefi" node="[object Object]" target="_blank" rel="noopener noreferrer">OIP-34.</a> Note that this bounty is not available to Olympus Contributors, who should submit via the Olympus Discord page found <a href="https://discord.com/channels/838651642190495804/905317734387175474/1192854877630627911?utm_source=immunefi" node="[object Object]" target="_blank" rel="noopener noreferrer">here</a>.</p>
-<p>Olympus provides rewards in OHM, denominated in USD. For more details about the payment process, please view the Rewards by Threat Level section further below.</p>
-<p><strong>Responsible Publication</strong></p>
-<p>Olympus adheres to category <strong>3 - Approval Required</strong>. This Policy determines what information researchers are allowed to make public from their submitted bug reports. For more information about the category selected, please refer to our <a node="[object Object]" href="https://immunefi.com/responsible-publication/">Responsible Publication</a> page.</p>
-<p><strong>Primacy of Impact vs Primacy of Rules</strong></p>
-<p>Olympus adheres to the Primacy of Rules, which means that the whole bug bounty program is run strictly under the terms stated in this page.</p>
-<p><strong>Proof of Concept (PoC) Requirements</strong></p>
-<p>A PoC, demonstrating the bug's impact, is required for this program and has to comply with the <a href="https://immunefisupport.zendesk.com/hc/en-us/articles/9946217628561-Proof-of-Concept-PoC-Guidelines-and-Rules?utm_source=immunefi" node="[object Object]" target="_blank" rel="noopener noreferrer">Immunefi PoC Guidelines and Rules</a>.</p>
-<p><strong>Previous Audits</strong></p>
-<p>A full list of Olympus completed audit reports can be accessed below. Any unfixed vulnerability mentioned in these reports are not eligible for a reward.</p>
-<ul>
-<li><a href="https://docs.olympusdao.finance/main/security/audits?utm_source=immunefi" node="[object Object]" target="_blank" rel="noopener noreferrer">https://docs.olympusdao.finance/main/security/audits</a></li>
-</ul>
-<p><strong>Immunefi Standard Badge</strong></p>
-<p>By adhering to Immunefi’s best practice recommendations, Olympus has satisfied the requirements for the <a href="https://immunefisupport.zendesk.com/hc/en-us/articles/6427157117713-The-Immunefi-Standard-Badge-?utm_source=immunefi" node="[object Object]" target="_blank" rel="noopener noreferrer">Immunefi Standard Badge</a>.</p></div></div></div></section><section class="mb-[60px]"><div class="-mt-[75px] mb-[16px] flex flex-col pt-[75px] md:flex-row md:items-center md:justify-between"><h3 class="mb-[16px] text-[22px] leading-[33px] md:mb-0"><span class="flex items-center space-x-2"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="28" width="28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"></path></svg><span>KYC not required</span></span></h3></div><div class="relative overflow-hidden rounded-[5px] bg-[#191919] border border-[#374151]"><div class="px-8 py-5"><p>No KYC information is required for payout processing.</p></div></div></section><div class="grid lg:grid-cols-2 lg:gap-4"><section class="flex flex-col mb-[60px]"><div class="-mt-[75px] mb-[16px] flex flex-col pt-[75px] md:flex-row md:items-center md:justify-between"><h3 class="mb-[16px] text-[22px] leading-[33px] md:mb-0"><span class="flex items-center space-x-2"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z"></path></svg><span>Proof of Concept</span></span></h3></div><div class="group flex w-full flex-1 items-center justify-between gap-2 rounded-[5px] rounded-br-[5px] border border-[#374151] bg-[#1B1B1B] py-5 pr-4 pl-8 transition hover:cursor-pointer hover:border-[#67CCCD] hover:bg-[#000000]"><div class="max-w-[80%]"><p class="text-[18px] leading-[31px]">Proof of concept is always required for all severities.</p></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" class="transition-color shrink-0 text-[#898E99] duration-200 group-hover:text-[#67CCCD]" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0ZM8.94 6.94a.75.75 0 1 1-1.061-1.061 3 3 0 1 1 2.871 5.026v.345a.75.75 0 0 1-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 1 0 8.94 6.94ZM10 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"></path></svg></div></section><section class="flex flex-col mb-[60px]"><div class="-mt-[75px] mb-[16px] flex flex-col pt-[75px] md:flex-row md:items-center md:justify-between"><h3 class="mb-[16px] text-[22px] leading-[33px] md:mb-0"><span class="flex items-center space-x-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="28" width="28" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg><span>Responsible Publication</span></span></h3></div><div class="group flex w-full flex-1 items-center justify-between gap-2 rounded-[5px] rounded-br-[5px] border border-[#374151] bg-[#1B1B1B] py-5 pr-4 pl-8 transition hover:cursor-pointer hover:border-[#67CCCD] hover:bg-[#000000]"><div class="max-w-[80%]"><p class="text-[18px] leading-[31px]">Category 3: Approval Required</p></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" class="transition-color shrink-0 text-[#898E99] duration-200 group-hover:text-[#67CCCD]" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0ZM8.94 6.94a.75.75 0 1 1-1.061-1.061 3 3 0 1 1 2.871 5.026v.345a.75.75 0 0 1-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 1 0 8.94 6.94ZM10 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd"></path></svg></div></section></div><section class="mb-[60px]"><div class="-mt-[75px] mb-[16px] flex flex-col pt-[75px] md:flex-row md:items-center md:justify-between"><h3 class="mb-[16px] text-[22px] leading-[33px] md:mb-0"><span class="flex items-center space-x-2"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"></path></svg><span>Prohibited Activities</span></span></h3></div><div class="relative overflow-hidden rounded-[5px] bg-[#191919] border border-[#374151]"><div class="flex"><div class="rounded-br-[5px] bg-[#374151] px-[10px] py-[2px] text-sm font-medium bg-[#374151]">Default prohibited activities</div></div><div class="px-8 py-5"><div class="Markdown-module__WgzoCG__markdown prose bounty-module__XcWzhq__static"><ul>
-<li>Any testing on mainnet or public testnet deployed code; all testing should be done on local-forks of either public testnet or mainnet</li>
-<li>Any testing with pricing oracles or third-party smart contracts</li>
-<li>Attempting phishing or other social engineering attacks against our employees and/or customers</li>
-<li>Any testing with third-party systems and applications (e.g. browser extensions) as well as websites (e.g. SSO providers, advertising networks)</li>
-<li>Any denial of service attacks that are executed against project assets</li>
-<li>Automated testing of services that generates significant amounts of traffic</li>
-<li>Public disclosure of an unpatched vulnerability in an embargoed bounty</li>
-<li><a node="[object Object]" href="https://immunefi.com/rules/">Any other actions prohibited by the Immunefi Rules</a></li>
-</ul></div></div></div></section><section class="mb-[60px]"><div class="-mt-[75px] mb-[16px] flex flex-col pt-[75px] md:flex-row md:items-center md:justify-between"><h3 class="mb-[16px] text-[22px] leading-[33px] md:mb-0"><span class="flex items-center space-x-2"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="28" width="28" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M432 320V144a32 32 0 0 0-32-32h0a32 32 0 0 0-32 32v112m0 0V80a32 32 0 0 0-32-32h0a32 32 0 0 0-32 32v160m-64 1V96a32 32 0 0 0-32-32h0a32 32 0 0 0-32 32v224m128-80V48a32 32 0 0 0-32-32h0a32 32 0 0 0-32 32v192"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M432 320c0 117.4-64 176-152 176s-123.71-39.6-144-88L83.33 264c-6.66-18.05-3.64-34.79 11.87-43.6h0c15.52-8.82 35.91-4.28 44.31 11.68L176 320"></path></svg><span>Feasibility Limitations</span></span></h3></div><div class="relative overflow-hidden rounded-[5px] bg-[#191919] border border-[#374151]"><div class="px-8 py-5"><div class="Markdown-module__WgzoCG__markdown prose text-[18px] bounty-module__XcWzhq__static bounty-module__XcWzhq__fatlist"><p>The project may be receiving reports that are valid (the bug and attack vector are real) and cite assets and impacts that are in scope, but there may be obstacles or barriers to executing the attack in the real world. In other words, there is a question about how feasible the attack really is. Conversely, there may also be mitigation measures that projects can take to prevent the impact of the bug, which are not feasible or would require unconventional action and hence, should not be used as reasons for downgrading a bug's severity.
-Therefore, Immunefi has developed a set of feasibility limitation standards which by default states what security researchers, as well as projects, can or cannot cite when reviewing a bug report.</p>
-<ul>
-<li><a href="https://immunefisupport.zendesk.com/hc/en-us/articles/16913153448721-Chain-Rollbacks?utm_source=immunefi" node="[object Object]" target="_blank" rel="noopener noreferrer">Chain Rollbacks</a></li>
-<li><a href="https://immunefisupport.zendesk.com/hc/en-us/articles/19430444320401-Pre-Impact-Bug-Monitoring?utm_source=immunefi" node="[object Object]" target="_blank" rel="noopener noreferrer">Pre-Impact Bug Monitoring</a></li>
-<li><a href="https://immunefisupport.zendesk.com/hc/en-us/articles/17243068885265-Attack-Investment-Amount?utm_source=immunefi" node="[object Object]" target="_blank" rel="noopener noreferrer">Attack Investment Amount</a></li>
-<li><a href="https://immunefisupport.zendesk.com/hc/en-us/articles/17454897136401-Attacks-With-A-Financial-Risk-To-The-Attacker?utm_source=immunefi" node="[object Object]" target="_blank" rel="noopener noreferrer">Attacks With A Financial Risk To The Attacker</a></li>
-<li><a href="https://immunefisupport.zendesk.com/hc/en-us/articles/17455102268305-When-Is-An-Impactful-Attack-Downgraded-To-Griefing?utm_source=immunefi" node="[object Object]" target="_blank" rel="noopener noreferrer">When Is An Impactful Attack Downgraded To Griefing?</a></li>
-</ul></div></div></div></section></div><div class="order-1 col-span-8 mb-[60px] lg:order-2 lg:col-span-2 lg:mb-0 lg:px-[16px]"><div class="lg:sticky lg:top-[75px]"><div class="relative transition-all"><div class="mb-4 hidden transform items-center justify-center px-[12px] transition-all duration-500 ease-in-out lg:flex invisible h-0 -translate-y-6 opacity-0"><a target="_blank" referrerpolicy="origin" href="https://bugs.immunefi.com/dashboard/new-submission?utm_source=immunefi" class="btn block w-[80%] border-[#4F46E5] bg-[#4F46E5] !text-white hover:border-[#423bc0] hover:bg-[#423bc0] hover:text-white lg:text-sm xl:text-base">Submit a Bug</a></div><div class="flex flex-col space-y-2 rounded-[5px] border border-[#374151] p-[16px]"><div class="group flex items-center justify-between rounded-[5px] border border-[#2E2E2E] px-[12px] py-[10px] transition-colors"><div><dt class="text-[16px] leading-[24px] text-[#7A818D]">Total paid</dt><dd class="text-[20px] leading-[30px] font-medium"><p>261.7k<!-- --> </p></dd></div></div><div class="group flex items-center justify-between rounded-[5px] border border-[#2E2E2E] px-[12px] py-[10px] transition-colors"><div><dt class="text-[16px] leading-[24px] text-[#7A818D]">Med. Resolution Time</dt><dd class="text-[20px] leading-[30px] font-medium">17 hours</dd></div></div><a class="group flex items-center justify-between rounded-[5px] border border-[#2E2E2E] px-[12px] py-[10px] transition-colors hover:border-[#67CCCD]" href="https://immunefi.com/bug-bounty/olympus/scope/#assets"><div><dt class="text-[16px] leading-[24px] text-[#7A818D]">Total Assets in Scope</dt><dd class="text-[20px] leading-[30px] font-medium">72</dd></div><svg stroke="currentColor" fill="none" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" class="transition-colors group-hover:text-[#67CCCD]" height="28" width="28" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path></svg></a></div></div></div></div></div></div></article><!--$--><!--/$--></main><footer class="relative z-10 mt-0"><div class="relative mt-20 pb-12"><div class="size-full absolute"><div style="width: 100%; height: 100%;"></div></div><div data-testid="Newsletter" class="w-full py-8"><form class="relative z-10 container flex flex-col items-center justify-center gap-y-8"><span class="[leading-trim:both] [text-edge:cap] text-white font-unbounded uppercase font-normal text-[30px] leading-[30px] tracking-[0] md:text-[40px] md:leading-[40px] md:tracking-[0] lg:text-[48px] lg:leading-[48px] lg:tracking-[0] text-center">Stay on top of <br> Immunefi Announcements</span><span class="[leading-trim:both] [text-edge:cap] text-white font-geist font-normal text-[18px] leading-[22px] tracking-[0] md:text-[21px] md:leading-[26px] md:tracking-[0] lg:text-[22px] lg:leading-[26px] lg:tracking-[0] text-center">Get information and early access to exclusive features, events, and updates</span><div class="flex w-full max-w-lg flex-col items-center justify-center gap-2 sm:flex-row"><input class="bg-deepBlack/30 h-9 w-full appearance-none rounded-xs border-2 border-white/40 px-2 py-2 text-[16px] text-gray-400 outline-hidden sm:text-sm" type="email" placeholder="Email" aria-label="Email address" autocomplete="email" value=""><button type="submit" class="h-9 w-full rounded-xs px-4 whitespace-nowrap hover:opacity-80 sm:w-auto bg-pink-gradient"><span class="[leading-trim:both] [text-edge:cap] text-white font-geist font-normal text-[18px] leading-[22px] tracking-[0] md:text-[18px] md:leading-[22px] md:tracking-[0.3px] lg:text-[18px] lg:leading-[23px] lg:tracking-[0.5px] whitespace-nowrap">Join the newsletter</span></button></div></form></div></div><div class="container py-8 pb-8"><div class="flex flex-col justify-between divide-y divide-white/10 lg:space-y-0"><div class="flex flex-col items-center justify-between gap-y-1 py-2 md:flex-row md:py-1"><div class="font-normal text-[0.84rem] tracking-[1px] leading-tight w-full text-white md:w-auto">SOCIALS</div><div class="flex w-full flex-row flex-wrap justify-start gap-x-4 md:w-auto"><a href="https://twitter.com/immunefi?utm_source=immunefi" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">𝕏</span></a><a href="https://t.me/+5CtF7wTbAJVhODgx?utm_source=immunefi" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">IMU Telegram</span></a><a href="https://www.linkedin.com/company/immunefi?utm_source=immunefi" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">LinkedIn</span></a><a href="https://www.youtube.com/channel/UCmulw2BHpP6IiBM0Re0yP5Q?utm_source=immunefi" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">YouTube</span></a><a href="https://www.instagram.com/immunefi/?utm_source=immunefi" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Instagram</span></a><a href="https://discord.com/invite/immunefi?utm_source=immunefi" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Discord</span></a><a href="https://farcaster.xyz/immunefi?utm_source=immunefi" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Farcaster</span></a></div></div><div class="flex flex-col items-center justify-between gap-y-1 py-2 md:flex-row md:py-1"><div class="font-normal text-[0.84rem] tracking-[1px] leading-tight w-full text-white md:w-auto">EXPLORE</div><div class="flex w-full flex-row flex-wrap justify-start gap-x-4 md:w-auto"><a href="https://immunefi.com/bug-bounty-program/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Bug Bounty Programs</span></a><a href="https://immunefi.com/audits/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Audits</span></a><a href="https://immunefi.com/managed-triage/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Managed Triage</span></a></div></div><div class="flex flex-col items-center justify-between gap-y-1 py-2 md:flex-row md:py-1"><div class="font-normal text-[0.84rem] tracking-[1px] leading-tight w-full text-white md:w-auto">COMPANY</div><div class="flex w-full flex-row flex-wrap justify-start gap-x-4 md:w-auto"><a href="https://immunefi.com/about/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">About</span></a><a href="https://immunefi.com/blog/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Blog</span></a><a href="https://boards.greenhouse.io/immunefi?utm_source=immunefi" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Careers</span></a><a href="https://immunefi.com/contact/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Contact</span></a><a href="https://immunefi.slite.page/p/sPDbHrhujZ21s6/Immunefi-Referral-Program?utm_source=immunefi" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Referral Program</span></a><a href="https://immunefi.foundation/?utm_source=immunefi&amp;utm_medium=footer&amp;utm_content=foundation" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Foundation</span></a></div></div><div class="flex flex-col items-center justify-between gap-y-1 py-2 md:flex-row md:py-1"><div class="font-normal text-[0.84rem] tracking-[1px] leading-tight w-full text-white md:w-auto">TOKEN</div><div class="flex w-full flex-row flex-wrap justify-start gap-x-4 md:w-auto"><a href="https://immunefi.foundation/?utm_source=immunefi&amp;utm_medium=footer&amp;utm_content=foundation" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Foundation</span></a><a href="https://immunefi.foundation/institutional?utm_source=immunefi&amp;utm_medium=footer&amp;utm_content=institutional" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Institutional</span></a><a href="https://docs.immunefi.foundation/?utm_source=immunefi&amp;utm_medium=footer&amp;utm_content=docs" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Docs</span></a><a href="https://mnrj63gcocj.typeform.com/to/gG25n4bN?utm_source=immunefi&amp;utm_medium=footer&amp;utm_content=ir-contact" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">IR Contact</span></a><a href="https://linktr.ee/IMU_official?utm_source=immunefi&amp;utm_medium=footer&amp;utm_content=buy-imu" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Buy IMU</span></a></div></div><div class="flex flex-col items-center justify-between gap-y-1 py-2 md:flex-row md:py-1"><div class="font-normal text-[0.84rem] tracking-[1px] leading-tight w-full text-white md:w-auto">DOCUMENTS</div><div class="flex w-full flex-row flex-wrap justify-start gap-x-4 md:w-auto"><a href="https://immunefi.com/research/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Research</span></a><a href="https://immunefi.com/press/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Press</span></a><a href="https://drive.google.com/drive/folders/1vNJ75igTcw-4pWzGwjT36cCrthuHVSg3" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Brand Assets</span></a><a href="https://immunefisupport.zendesk.com/?utm_source=immunefi" target="_blank" rel="noopener noreferrer"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Help</span></a></div></div><div class="flex flex-col items-center justify-between gap-y-1 py-2 md:flex-row md:py-1"><div class="font-normal text-[0.84rem] tracking-[1px] leading-tight w-full text-white md:w-auto">LEGAL</div><div class="flex w-full flex-row flex-wrap justify-start gap-x-4 md:w-auto"><a href="https://immunefi.com/terms-of-use/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Terms of Use</span></a><a href="https://immunefi.com/privacy-policy/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Privacy</span></a><a href="https://immunefi.com/employee-verification/"><span class="font-normal text-[0.84rem] tracking-[1px] leading-tight">Employee Verification</span></a></div></div></div><div class="flex items-center justify-between"><div class="flex flex-col py-4 text-left text-sm text-white/30 md:flex-row md:text-center"><span class="font-normal text-[0.7rem] tracking-[1px]">Copyright © Immunefi</span><span class="font-normal text-[0.7rem] tracking-[1px] hidden px-1 md:block">–</span><span class="font-normal text-[0.7rem] tracking-[1px]">Unified Web3 Security Platform</span></div><div class="flex items-center py-4"><img alt="SOC 2 Type II Compliance" loading="lazy" width="145" height="171" decoding="async" data-nimg="1" class="h-auto w-auto" style="color: transparent;" srcset="soc-2-compliance-logo.png 1x, soc-2-compliance-logo-1.png 2x" src="soc-2-compliance-logo-1.png"></div></div></div></footer></div><title>Olympus Bug Bounties | Immunefi</title><meta name="description" content="Find bugs and vulnerabilities on Olympus and get paid up to $3,333,333."><link rel="manifest" href="https://immunefi.com/site.webmanifest"><link rel="canonical" href="https://immunefi.com/bug-bounty/olympus/information/"><meta property="og:title" content="Olympus Bug Bounties | Immunefi"><meta property="og:description" content="Find bugs and vulnerabilities on Olympus and get paid up to $3,333,333."><meta property="og:url" content="https://immunefi.com/bug-bounty/olympus/"><meta property="og:image" content="https://immunefi.com/api/programs/olympus/og-image/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@immunefi"><meta name="twitter:title" content="Olympus Bug Bounties | Immunefi"><meta name="twitter:description" content="Find bugs and vulnerabilities on Olympus and get paid up to $3,333,333."><meta name="twitter:image" content="https://immunefi.com/api/programs/olympus/og-image/"><link rel="mask-icon" href="https://immunefi.com/safari-pinned-tab.svg" color="#5bbad5"><next-route-announcer style="position: absolute;"></next-route-announcer></body></html>
+<!DOCTYPE html>
+<html lang="en" class="h-dvh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Olympus Bug Bounty</title>
+  <meta name="description" content="Olympus Bug Bounty Program — find vulnerabilities and earn up to $3,333,333 in OHM rewards.">
+  <link rel="stylesheet" href="13svqqn_tv061.css">
+  <style>
+    :root { --ohm-teal: #67CCCD; --ohm-purple: #2E2030; --ohm-pink: #F01580; --ohm-dark: #121212; --ohm-card: #1B1B1B; --ohm-border: #374151; }
+    body { background-color: #0a0a0a; color: #e5e7eb; font-family: 'Rubik', ui-sans-serif, system-ui, sans-serif; }
+    .site-header { background-color: #0a0a0a; border-bottom: 1px solid var(--ohm-border); position: sticky; top: 0; z-index: 50; }
+    .nav-link { color: #9ca3af; font-size: 0.9rem; letter-spacing: 0.05em; transition: color 0.2s; padding: 0.25rem 0; }
+    .nav-link:hover, .nav-link.active { color: var(--ohm-teal); }
+    .hero { background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%); padding: 5rem 0 4rem; border-bottom: 1px solid var(--ohm-border); }
+    .badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(103,204,205,0.1); border: 1px solid rgba(103,204,205,0.3); color: var(--ohm-teal); font-size: 0.75rem; letter-spacing: 0.1em; padding: 0.25rem 0.75rem; border-radius: 9999px; }
+    .stat-card { background: var(--ohm-card); border: 1px solid var(--ohm-border); border-radius: 8px; padding: 1.25rem 1.75rem; }
+    .stat-card.highlight { background: var(--ohm-purple); border-color: rgba(103,204,205,0.2); }
+    .section-card { background: var(--ohm-card); border: 1px solid var(--ohm-border); border-radius: 8px; margin-bottom: 1.5rem; overflow: hidden; }
+    .section-card-header { background: #262626; padding: 0.5rem 1rem; font-size: 0.8rem; color: #9ca3af; letter-spacing: 0.05em; text-transform: uppercase; }
+    .section-card-body { padding: 2rem; }
+    .tab-nav { background: #0a0a0a; border-bottom: 2px solid var(--ohm-border); position: sticky; top: 57px; z-index: 40; }
+    .tab-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-size: 0.95rem; color: #9ca3af; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+    .tab-link:hover { color: #e5e7eb; }
+    .tab-link.active { color: var(--ohm-teal); border-bottom-color: var(--ohm-teal); }
+    .severity-badge { display: inline-flex; align-items: center; padding: 0.15rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
+    .severity-critical { background: var(--ohm-pink); color: #fff; }
+    .severity-high { background: #f97316; color: #fff; }
+    .severity-medium { background: #eab308; color: #000; }
+    .severity-low { background: #22c55e; color: #000; }
+    .reward-card { background: var(--ohm-card); border: 1px solid var(--ohm-border); border-radius: 8px; overflow: hidden; }
+    .reward-card-top { padding: 0.3rem; text-align: center; font-weight: 600; color: #fff; }
+    .reward-card-body { padding: 1.25rem; }
+    .page-card { background: var(--ohm-card); border: 1px solid var(--ohm-border); border-radius: 8px; padding: 1.5rem; transition: all 0.2s; display: block; }
+    .page-card:hover { border-color: var(--ohm-teal); background: #222; }
+    .page-card-icon { width: 40px; height: 40px; background: rgba(103,204,205,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+    .btn-primary { display: inline-block; background: #4F46E5; color: #fff; border: 1px solid #4F46E5; border-radius: 6px; padding: 0.6rem 1.5rem; font-size: 0.9rem; transition: all 0.2s; }
+    .btn-primary:hover { background: #423bc0; border-color: #423bc0; }
+    .btn-outline { display: inline-block; background: transparent; color: var(--ohm-teal); border: 1px solid var(--ohm-teal); border-radius: 6px; padding: 0.6rem 1.5rem; font-size: 0.9rem; transition: all 0.2s; }
+    .btn-outline:hover { background: rgba(103,204,205,0.1); }
+    .scope-table { width: 100%; border-collapse: collapse; }
+    .scope-table th { background: #262626; color: #9ca3af; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--ohm-border); }
+    .scope-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(55,65,81,0.5); font-size: 0.9rem; }
+    .scope-table tr:last-child td { border-bottom: none; }
+    .scope-table tr:hover td { background: rgba(255,255,255,0.02); }
+    code { background: #262626; color: var(--ohm-teal); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.85em; font-family: ui-monospace, monospace; }
+    .rule-item { display: flex; gap: 0.75rem; padding: 1rem 0; border-bottom: 1px solid rgba(55,65,81,0.5); }
+    .rule-item:last-child { border-bottom: none; }
+    .rule-icon { color: var(--ohm-teal); flex-shrink: 0; margin-top: 2px; }
+    .rule-icon.warn { color: #f97316; }
+    .rule-icon.danger { color: var(--ohm-pink); }
+    .resource-link { display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 1rem; border: 1px solid var(--ohm-border); border-radius: 6px; color: #e5e7eb; transition: all 0.2s; margin-bottom: 0.5rem; }
+    .resource-link:hover { border-color: var(--ohm-teal); color: var(--ohm-teal); background: rgba(103,204,205,0.05); }
+    .site-footer { background: #050505; border-top: 1px solid var(--ohm-border); margin-top: 5rem; }
+    .footer-section-title { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 0.75rem; }
+    .footer-link { display: block; font-size: 0.85rem; color: #6b7280; transition: color 0.2s; margin-bottom: 0.4rem; }
+    .footer-link:hover { color: var(--ohm-teal); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .prose p { margin-bottom: 1rem; line-height: 1.7; }
+    .prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .prose li { margin-bottom: 0.5rem; line-height: 1.6; }
+    .prose a { color: var(--ohm-teal); text-decoration: underline; }
+    h1, h2, h3, h4 { color: #f9fafb; }
+    .section-title { display: flex; align-items: center; gap: 0.75rem; font-size: 1.25rem; font-weight: 600; margin-bottom: 1.25rem; }
+    .section-title svg { color: var(--ohm-teal); }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; height:57px;">
+    <a href="index.html" style="display:flex; align-items:center; gap:0.75rem; text-decoration:none;">
+      <div style="width:32px;height:32px;background:linear-gradient(135deg,#67CCCD,#4F46E5);border-radius:50%;"></div>
+      <span style="font-weight:700; font-size:1.05rem; color:#f9fafb; letter-spacing:0.02em;">Olympus <span style="color:var(--ohm-teal);">Bug Bounty</span></span>
+    </a>
+    <nav style="display:flex; align-items:center; gap:1.75rem;">
+      <a href="index.html" class="nav-link active">Overview</a>
+      <a href="mainnet.html" class="nav-link">Mainnet</a>
+      <a href="testnet.html" class="nav-link">Testnet</a>
+      <a href="documentation.html" class="nav-link">Docs</a>
+      <a href="smart-contracts.html" class="nav-link">Contracts</a>
+      <a href="rewards.html" class="nav-link">Rewards</a>
+      <a href="https://bugs.immunefi.com/dashboard/new-submission" target="_blank" class="btn-primary" style="font-size:0.85rem; padding:0.45rem 1.1rem;">Submit Bug</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="container">
+    <div style="display:flex; align-items:center; gap:3rem; flex-wrap:wrap;">
+      <div style="flex:1; min-width:300px;">
+        <div style="margin-bottom:1rem;">
+          <span class="badge">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="6"/></svg>
+            Live Program
+          </span>
+        </div>
+        <h1 style="font-size:2.5rem; font-weight:700; line-height:1.15; margin-bottom:1rem;">
+          Olympus<br><span style="color:var(--ohm-teal);">Bug Bounty</span> Program
+        </h1>
+        <p style="color:#9ca3af; font-size:1rem; line-height:1.7; max-width:520px; margin-bottom:1.5rem;">
+          Help secure Olympus — the decentralized reserve currency protocol. Report vulnerabilities in smart contracts and applications and earn up to <strong style="color:#f9fafb;">$3,333,333</strong> in OHM rewards.
+        </p>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <a href="rewards.html" class="btn-primary">View Rewards</a>
+          <a href="smart-contracts.html" class="btn-outline">View Scope</a>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:0.75rem; min-width:260px;">
+        <div class="stat-card">
+          <div style="font-size:0.8rem; color:#9ca3af; margin-bottom:0.25rem;">Maximum Bounty</div>
+          <div style="font-size:1.75rem; font-weight:700; color:#f9fafb;">$3,333,333</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+          <div class="stat-card highlight">
+            <div style="font-size:0.75rem; color:#9ca3af; margin-bottom:0.25rem;">Live Since</div>
+            <div style="font-size:0.95rem; font-weight:600;">Jan 2022</div>
+          </div>
+          <div class="stat-card highlight">
+            <div style="font-size:0.75rem; color:#9ca3af; margin-bottom:0.25rem;">Last Updated</div>
+            <div style="font-size:0.95rem; font-weight:600;">Mar 2026</div>
+          </div>
+        </div>
+        <div class="stat-card" style="display:flex; gap:0.5rem; flex-wrap:wrap; padding:0.875rem 1.25rem;">
+          <span style="border:1px solid #4b5563; border-radius:9999px; padding:0.2rem 0.6rem; font-size:0.75rem;">Ethereum</span>
+          <span style="border:1px solid #4b5563; border-radius:9999px; padding:0.2rem 0.6rem; font-size:0.75rem;">Polygon</span>
+          <span style="border:1px solid #4b5563; border-radius:9999px; padding:0.2rem 0.6rem; font-size:0.75rem;">DeFi</span>
+          <span style="border:1px solid #4b5563; border-radius:9999px; padding:0.2rem 0.6rem; font-size:0.75rem;">DAO</span>
+          <span style="border:1px solid #4b5563; border-radius:9999px; padding:0.2rem 0.6rem; font-size:0.75rem;">Solidity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TAB NAV ===== -->
+<div class="tab-nav">
+  <div class="container" style="display:flex; gap:0; overflow-x:auto;">
+    <a href="#information" class="tab-link active">
+      <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="16" width="16"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+      Information
+    </a>
+    <a href="#scope" class="tab-link">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="16" width="16"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      Scope
+    </a>
+    <a href="#program-rules" class="tab-link">
+      <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="16" width="16"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      Program Rules
+    </a>
+    <a href="#resources" class="tab-link">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="16" width="16"><path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"/></svg>
+      Resources
+    </a>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="container" style="padding-top:3rem; padding-bottom:3rem;">
+  <div style="display:grid; grid-template-columns:1fr 300px; gap:2rem; align-items:start;">
+
+    <!-- Left column -->
+    <div>
+
+      <!-- INFORMATION -->
+      <section id="information" style="scroll-margin-top:110px; margin-bottom:3rem;">
+        <h2 class="section-title">
+          <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="22" width="22"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Information
+        </h2>
+
+        <div class="section-card">
+          <div class="section-card-header">Program Overview</div>
+          <div class="section-card-body prose">
+            <p>Olympus is building the value layer of global finance — a programmatic, treasury-backed framework for monetary policy, credit, and liquidity. The protocol is governed by OlympusDAO and powers the OHM token, a decentralized reserve currency designed to maintain long-term purchasing power through an ever-growing protocol-owned treasury.</p>
+            <p>This bug bounty program covers Olympus smart contracts deployed on Ethereum mainnet and Polygon, as well as the official web application. The program is managed by OlympusDAO under the provisions of OIP-38 and is focused on preventing loss of treasury funds, user funds, and bond funds.</p>
+            <p>Rewards are paid in <strong>OHM</strong> and denominated in <strong>USD</strong>. Critical vulnerabilities may qualify for up to <strong>$3,333,333</strong>. The program operates under the Primacy of Rules — all rewards are governed strictly by the terms on this page.</p>
+            <p>Olympus adheres to <strong>Responsible Publication Category 3 — Approval Required</strong>. Researchers must obtain written approval from the OlympusDAO Bug Bounty Management team before publicly disclosing any submitted finding.</p>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <div class="section-card-header">Key Facts</div>
+          <div class="section-card-body">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div>
+                <div style="font-size:0.8rem; color:#9ca3af; margin-bottom:0.25rem;">Payment Token</div>
+                <div style="font-weight:600;">OHM (denominated in USD)</div>
+              </div>
+              <div>
+                <div style="font-size:0.8rem; color:#9ca3af; margin-bottom:0.25rem;">PoC Requirement</div>
+                <div style="font-weight:600;">Required for all severities</div>
+              </div>
+              <div>
+                <div style="font-size:0.8rem; color:#9ca3af; margin-bottom:0.25rem;">KYC Required</div>
+                <div style="font-weight:600;">No</div>
+              </div>
+              <div>
+                <div style="font-size:0.8rem; color:#9ca3af; margin-bottom:0.25rem;">Responsible Publication</div>
+                <div style="font-weight:600;">Category 3 — Approval Required</div>
+              </div>
+              <div>
+                <div style="font-size:0.8rem; color:#9ca3af; margin-bottom:0.25rem;">Governed by</div>
+                <div style="font-weight:600;">OlympusDAO (OIP-38)</div>
+              </div>
+              <div>
+                <div style="font-size:0.8rem; color:#9ca3af; margin-bottom:0.25rem;">Price Reference</div>
+                <div style="font-weight:600;">CoinMarketCap &amp; CoinGecko avg.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page links -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1.5rem;">
+          <a href="mainnet.html" class="page-card">
+            <div class="page-card-icon">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20" style="color:var(--ohm-teal);"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+            </div>
+            <div style="font-weight:600; margin-bottom:0.35rem;">Mainnet</div>
+            <div style="font-size:0.85rem; color:#9ca3af;">Live contracts &amp; production assets in scope</div>
+          </a>
+          <a href="testnet.html" class="page-card">
+            <div class="page-card-icon">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20" style="color:var(--ohm-teal);"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+            </div>
+            <div style="font-weight:600; margin-bottom:0.35rem;">Testnet</div>
+            <div style="font-size:0.85rem; color:#9ca3af;">Testing environment &amp; guidelines</div>
+          </a>
+          <a href="documentation.html" class="page-card">
+            <div class="page-card-icon">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20" style="color:var(--ohm-teal);"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+            <div style="font-weight:600; margin-bottom:0.35rem;">Documentation</div>
+            <div style="font-size:0.85rem; color:#9ca3af;">Official docs, audits &amp; references</div>
+          </a>
+          <a href="smart-contracts.html" class="page-card">
+            <div class="page-card-icon">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="20" width="20" style="color:var(--ohm-teal);"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            </div>
+            <div style="font-weight:600; margin-bottom:0.35rem;">Smart Contracts</div>
+            <div style="font-size:0.85rem; color:#9ca3af;">Contract architecture &amp; in-scope addresses</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- SCOPE -->
+      <section id="scope" style="scroll-margin-top:110px; margin-bottom:3rem;">
+        <h2 class="section-title">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="22" width="22"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          Scope
+        </h2>
+
+        <div class="section-card">
+          <div class="section-card-header">Smart Contracts — In Scope</div>
+          <div class="section-card-body" style="padding:0;">
+            <table class="scope-table">
+              <thead>
+                <tr>
+                  <th>Target</th>
+                  <th>Type</th>
+                  <th>Max Severity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>OHM Token Contract</code><br><span style="font-size:0.78rem; color:#6b7280;">Ethereum Mainnet</span></td>
+                  <td>Smart Contract</td>
+                  <td><span class="severity-badge severity-critical">Critical</span></td>
+                </tr>
+                <tr>
+                  <td><code>Olympus Treasury</code><br><span style="font-size:0.78rem; color:#6b7280;">Ethereum Mainnet</span></td>
+                  <td>Smart Contract</td>
+                  <td><span class="severity-badge severity-critical">Critical</span></td>
+                </tr>
+                <tr>
+                  <td><code>Bond Depository</code><br><span style="font-size:0.78rem; color:#6b7280;">Ethereum Mainnet</span></td>
+                  <td>Smart Contract</td>
+                  <td><span class="severity-badge severity-critical">Critical</span></td>
+                </tr>
+                <tr>
+                  <td><code>Staking Contract</code><br><span style="font-size:0.78rem; color:#6b7280;">Ethereum Mainnet</span></td>
+                  <td>Smart Contract</td>
+                  <td><span class="severity-badge severity-high">High</span></td>
+                </tr>
+                <tr>
+                  <td><code>olympusdao.finance</code><br><span style="font-size:0.78rem; color:#6b7280;">Web Application</span></td>
+                  <td>Web/App</td>
+                  <td><span class="severity-badge severity-critical">Critical</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <div class="section-card-header">Impacts in Scope</div>
+          <div class="section-card-body prose">
+            <p>The following categories of impacts qualify for rewards under this program. Only direct financial impacts are considered; theoretical or indirect impacts are generally out of scope.</p>
+            <ul>
+              <li>Unauthorized extraction of assets from the treasury</li>
+              <li>Direct theft or loss of user OHM or sOHM funds</li>
+              <li>Permanent freezing of treasury-held assets</li>
+              <li>Manipulation of the bonding mechanism leading to improperly discounted purchases</li>
+              <li>Smart contract bugs enabling reentrancy or flash-loan-based exploits</li>
+              <li>Unauthorized minting of OHM tokens</li>
+              <li>Front-end exploits directly causing financial loss (e.g., malicious transaction injection)</li>
+            </ul>
+            <p>For web/app vulnerabilities, only those directly leading to financial harm listed above are accepted. All other web vulnerabilities (XSS without direct financial impact, UI bugs, etc.) are out of scope.</p>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:1.5rem;">
+          <a href="smart-contracts.html" class="btn-outline">View Full Smart Contract Scope →</a>
+        </div>
+      </section>
+
+      <!-- PROGRAM RULES -->
+      <section id="program-rules" style="scroll-margin-top:110px; margin-bottom:3rem;">
+        <h2 class="section-title">
+          <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="22" width="22"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Program Rules
+        </h2>
+
+        <div class="section-card">
+          <div class="section-card-header">Eligibility &amp; Submission Requirements</div>
+          <div class="section-card-body">
+            <div class="rule-item">
+              <svg class="rule-icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="18" width="18"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+              <div>
+                <div style="font-weight:600; margin-bottom:0.25rem;">Proof of Concept Required</div>
+                <div style="font-size:0.9rem; color:#9ca3af;">A working PoC demonstrating the bug's impact is required for all severity levels. Submissions without a PoC will not be considered.</div>
+              </div>
+            </div>
+            <div class="rule-item">
+              <svg class="rule-icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="18" width="18"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+              <div>
+                <div style="font-weight:600; margin-bottom:0.25rem;">No Prior Disclosure</div>
+                <div style="font-size:0.9rem; color:#9ca3af;">Bugs that have already been publicly disclosed or submitted in a prior report are ineligible for reward.</div>
+              </div>
+            </div>
+            <div class="rule-item">
+              <svg class="rule-icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="18" width="18"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+              <div>
+                <div style="font-weight:600; margin-bottom:0.25rem;">Not Available to Olympus Contributors</div>
+                <div style="font-size:0.9rem; color:#9ca3af;">Olympus contributors must submit via the official Olympus Discord channel and should contact the Bug Bounty Management team directly.</div>
+              </div>
+            </div>
+            <div class="rule-item">
+              <svg class="rule-icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="18" width="18"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+              <div>
+                <div style="font-weight:600; margin-bottom:0.25rem;">KYC Not Required</div>
+                <div style="font-size:0.9rem; color:#9ca3af;">No KYC information is required for payout processing under this program.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <div class="section-card-header">Prohibited Activities</div>
+          <div class="section-card-body">
+            <div class="rule-item">
+              <svg class="rule-icon danger" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="18" width="18"><path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"/></svg>
+              <div style="font-size:0.9rem; color:#9ca3af;">Testing on mainnet or public testnets — all testing must be done on local forks</div>
+            </div>
+            <div class="rule-item">
+              <svg class="rule-icon danger" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="18" width="18"><path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"/></svg>
+              <div style="font-size:0.9rem; color:#9ca3af;">Any testing with pricing oracles or third-party smart contracts</div>
+            </div>
+            <div class="rule-item">
+              <svg class="rule-icon danger" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="18" width="18"><path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"/></svg>
+              <div style="font-size:0.9rem; color:#9ca3af;">Phishing, social engineering, or denial-of-service attacks against project assets</div>
+            </div>
+            <div class="rule-item">
+              <svg class="rule-icon danger" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="18" width="18"><path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"/></svg>
+              <div style="font-size:0.9rem; color:#9ca3af;">Automated testing generating significant traffic or public disclosure of unpatched vulnerabilities</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <div class="section-card-header">Primacy of Rules</div>
+          <div class="section-card-body prose">
+            <p>Olympus adheres to the <strong>Primacy of Rules</strong>, meaning the entire bug bounty program is operated strictly under the terms stated on this page. Rewards are calculated based on documented rules, not discretionary judgment, except where the program explicitly grants discretion (e.g., Tier 3 awards).</p>
+            <p>The reward calculation for critical vulnerabilities is based on <strong>10% of the directly affected funds</strong>, up to a maximum of $3,333,333. The OHM amount is determined using the average price between CoinMarketCap.com and CoinGecko.com at the time of submission. No adjustments are made for liquidity constraints.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESOURCES -->
+      <section id="resources" style="scroll-margin-top:110px; margin-bottom:3rem;">
+        <h2 class="section-title">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="22" width="22"><path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"/></svg>
+          Resources
+        </h2>
+
+        <div class="section-card">
+          <div class="section-card-header">Official Links</div>
+          <div class="section-card-body" style="padding:1rem;">
+            <a href="https://www.olympusdao.finance/" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="16" width="16"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              olympusdao.finance — Official Website
+            </a>
+            <a href="https://docs.olympusdao.finance/" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="16" width="16"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+              docs.olympusdao.finance — Technical Documentation
+            </a>
+            <a href="https://docs.olympusdao.finance/main/security/audits" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="16" width="16"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              Security Audit Reports
+            </a>
+            <a href="https://github.com/OlympusDAO" target="_blank" rel="noopener noreferrer" class="resource-link">
+              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="16" width="16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              GitHub — OlympusDAO
+            </a>
+            <a href="documentation.html" class="resource-link">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="16" width="16"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              Documentation &amp; References — This Site
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- end left col -->
+
+    <!-- Right sidebar -->
+    <aside style="position:sticky; top:110px;">
+      <div class="section-card" style="margin-bottom:1rem;">
+        <div class="section-card-body" style="padding:1.25rem;">
+          <div style="font-weight:700; margin-bottom:1rem;">Submit a Bug</div>
+          <ul style="font-size:0.85rem; color:#9ca3af; list-style:none; padding:0; margin-bottom:1.25rem;">
+            <li style="display:flex; gap:0.5rem; margin-bottom:0.5rem;">
+              <svg style="color:var(--ohm-teal); flex-shrink:0; margin-top:2px;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="14" width="14"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+              PoC Required
+            </li>
+            <li style="display:flex; gap:0.5rem; margin-bottom:0.5rem;">
+              <svg style="color:var(--ohm-teal); flex-shrink:0; margin-top:2px;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="14" width="14"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+              No KYC Required
+            </li>
+            <li style="display:flex; gap:0.5rem;">
+              <svg style="color:var(--ohm-teal); flex-shrink:0; margin-top:2px;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="14" width="14"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+              Paid in OHM
+            </li>
+          </ul>
+          <a href="https://bugs.immunefi.com/dashboard/new-submission" target="_blank" class="btn-primary" style="display:block; text-align:center; width:100%;">Submit a Bug</a>
+        </div>
+      </div>
+      <div class="section-card" style="margin-bottom:1rem;">
+        <div class="section-card-body" style="padding:1.25rem;">
+          <div style="font-weight:700; margin-bottom:0.75rem;">Quick Navigation</div>
+          <nav style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="mainnet.html" style="font-size:0.875rem; color:#9ca3af; transition:color 0.2s;" onmouseover="this.style.color='#67CCCD'" onmouseout="this.style.color='#9ca3af'">→ Mainnet Assets</a>
+            <a href="testnet.html" style="font-size:0.875rem; color:#9ca3af; transition:color 0.2s;" onmouseover="this.style.color='#67CCCD'" onmouseout="this.style.color='#9ca3af'">→ Testnet</a>
+            <a href="documentation.html" style="font-size:0.875rem; color:#9ca3af; transition:color 0.2s;" onmouseover="this.style.color='#67CCCD'" onmouseout="this.style.color='#9ca3af'">→ Documentation</a>
+            <a href="smart-contracts.html" style="font-size:0.875rem; color:#9ca3af; transition:color 0.2s;" onmouseover="this.style.color='#67CCCD'" onmouseout="this.style.color='#9ca3af'">→ Smart Contracts</a>
+            <a href="rewards.html" style="font-size:0.875rem; color:#9ca3af; transition:color 0.2s;" onmouseover="this.style.color='#67CCCD'" onmouseout="this.style.color='#9ca3af'">→ Rewards</a>
+          </nav>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container" style="padding-top:3rem; padding-bottom:2rem;">
+    <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:2rem; margin-bottom:2.5rem;">
+      <div>
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+          <div style="width:28px;height:28px;background:linear-gradient(135deg,#67CCCD,#4F46E5);border-radius:50%;"></div>
+          <span style="font-weight:700; font-size:1rem; color:#f9fafb;">Olympus <span style="color:var(--ohm-teal);">Bug Bounty</span></span>
+        </div>
+        <p style="font-size:0.85rem; color:#6b7280; line-height:1.6; max-width:280px;">Helping secure the Olympus decentralized reserve currency protocol through community-driven security research.</p>
+        <div style="margin-top:1rem;">
+          <a href="https://bugs.immunefi.com/dashboard/new-submission" target="_blank" class="btn-primary" style="font-size:0.85rem;">Submit a Bug</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-section-title">Program</div>
+        <a href="index.html" class="footer-link">Overview</a>
+        <a href="mainnet.html" class="footer-link">Mainnet</a>
+        <a href="testnet.html" class="footer-link">Testnet</a>
+        <a href="documentation.html" class="footer-link">Documentation</a>
+        <a href="smart-contracts.html" class="footer-link">Smart Contracts</a>
+        <a href="rewards.html" class="footer-link">Rewards</a>
+      </div>
+      <div>
+        <div class="footer-section-title">Sections</div>
+        <a href="#information" class="footer-link">Information</a>
+        <a href="#scope" class="footer-link">Scope</a>
+        <a href="#program-rules" class="footer-link">Program Rules</a>
+        <a href="#resources" class="footer-link">Resources</a>
+      </div>
+      <div>
+        <div class="footer-section-title">External</div>
+        <a href="https://www.olympusdao.finance/" target="_blank" rel="noopener noreferrer" class="footer-link">OlympusDAO</a>
+        <a href="https://docs.olympusdao.finance/" target="_blank" rel="noopener noreferrer" class="footer-link">Documentation</a>
+        <a href="https://github.com/OlympusDAO" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+        <a href="https://forum.olympusdao.finance/" target="_blank" rel="noopener noreferrer" class="footer-link">Forum</a>
+        <a href="https://immunefi.com/bug-bounty/olympus/" target="_blank" rel="noopener noreferrer" class="footer-link">Immunefi Listing</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--ohm-border); padding-top:1.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <span style="font-size:0.78rem; color:#4b5563;">© 2026 Olympus Bug Bounty — Powered by OlympusDAO</span>
+      <span style="font-size:0.78rem; color:#4b5563;">Rewards paid in OHM · Governed by OIP-38</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Highlight active tab on scroll
+  const sections = ['information','scope','program-rules','resources'];
+  const tabs = document.querySelectorAll('.tab-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 130) current = id;
+    });
+    tabs.forEach(t => {
+      t.classList.toggle('active', t.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+
+</body>
+</html>
